@@ -14,7 +14,7 @@ Tools = {
 async def scrape_tool(tool, url):
     async with async_playwright() as p:
         # Launching the browser
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(headless=True, args=["--incognito"])
         page = await browser.new_page()
         try:
             # Route to abort unnecessary resources for faster loading
